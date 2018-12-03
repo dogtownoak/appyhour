@@ -7,7 +7,7 @@ const
     // ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.json());
 
 //serve static files from public folder
 app.use(express.static(__dirname + '/public'));
