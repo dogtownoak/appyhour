@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/project-01', { userNewUrlParser: true});
+mongoose.connect('mongodb://localhost/project-01', { useNewUrlParser: true});
 
 const Appetizer = require('./appetizer');
 const Drink = require('./drink');
