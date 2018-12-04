@@ -7,7 +7,7 @@ var appetizer_list = [
         style: "Buffalo",
         image: "https://loremflickr.com/320/240/appetizer",
         desription: "Bone-in Buffalo style hot wings",
-        dateValid: 12/12/2018,
+        dateValid: Date(2018/12/12),
         business: "Original Buffalo Wings",
         businessAddress: "2499 Lombard Street, San Francisco CA 94123",
         businessLocation: "{lat: 37.798864, lng: -122.4424}"
@@ -47,25 +47,7 @@ var user_list = [
     }
 ];
 
-var order_list = [
-    {
-        dateValid: 12/12/2018,
-        dateOrdered: 12/11/2018,
-        orderNumber: 1234
-        // user: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'User'
-        // },
-        // drink: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'Drink'
-        // },
-        // appetizer: {
-        //     type: Schema.Types.ObjectId,
-        //     ref: 'Appetizer'
-        
-    }
-];
+
 
 db.Appetizer.deleteMany({}, function(err, appetizer) {
     console.log('removed all appetizers');
@@ -103,14 +85,3 @@ db.User.deleteMany({}, function(err, user) {
     })
 });
 
-db.Order.deleteMany({}, function(err, order) {
-    console.log('removed all orders');
-    db.Order.create(order_list, function(err, savedOrders){
-        if(err){
-            console.log(err);
-            return;
-        }
-        console.log("recreated orders");
-        console.log("create", order.length, "order");
-    })
-});
