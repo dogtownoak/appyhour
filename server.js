@@ -42,7 +42,7 @@ app.get('/api/orders', (req, res) => {
 
 
 ////////////// DELETE ORDER //////////////////////////////////////
-app.delete('/api/orders:id', (req, res) => {
+app.delete('/api/orders/:id', (req, res) => {
    var orderId = req.params.id;
     db.Order.findByIdAndDelete({_id: orderId}, (err, deletedOrder) => {
         if (err) {
