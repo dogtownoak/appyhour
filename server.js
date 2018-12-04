@@ -4,7 +4,7 @@ const
     app = express(),
     bodyParser = require('body-parser'),
     db = require('./models')
-    // ctrl = require('./controllers')
+    ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,7 +19,17 @@ app.get('/', (req, res) => {
 
 //Routes
 
+//Index
+app.get('/api/orders', ctrl.order.index);
 
+//Create
+app.post('/api/orders', ctrl.order.create);
+
+//Update
+app.put('/api/orders/:id', ctrl.order.update);
+
+//Delete
+app.delete('/api/orders/:id', ctrl.order.delete);
 
 
 
