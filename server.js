@@ -39,7 +39,17 @@ app.get('/api/orders', (req, res) => {
     })
 });
 
-
+////////////// UPDATE ORDER ////////////////
+app.put('/api/orders/:id', (req,res) => {
+    var orderId = req.params.id;
+    var order = req.body;
+    db.Order.findByIdAndUpdate({_id: orderId}, order, (err, updatedOrder) => {
+        if (err) { 
+            return console.log(err);
+        }
+        res.json(updatedOrder);
+    })
+});
 
 ////////////// DELETE ORDER //////////////////////////////////////
 app.delete('/api/orders/:id', (req, res) => {
