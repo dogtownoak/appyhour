@@ -1,7 +1,51 @@
  * {
-     box-sizing: border-box;
- }
+    box-sizing: border-box;
+}
 
- .hidden {
-     display:none;
- }
+.hidden {
+    display:none;
+}
+
+.signUp h1 {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    height: 300px;
+    width: 340px;
+    padding: 1em;
+    border: 3px solid #ccc;
+    border-radius: 2.5em;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+
+input[type=text], input[type=password] {
+    font: 1em;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus {
+    border-color: #000;
+}
+
+input[type=submit] {
+    margin: 0 auto;
+    display: block;
+    transition-duration: 0.4s;
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+input[type=submit]:hover {
+    background-color: #999999;
+    color: white;
+    cursor: pointer;
+}
