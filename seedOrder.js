@@ -3,8 +3,8 @@ const db = require('./models');
 
 var order_list = [
     {
-        dateValid: new Date("2018-12-10"),
-        dateOrdered: new Date("2018-12-10"),
+        dateValid: new Date("2018-12-14"),
+        dateOrdered: new Date("2018-12-13"),
         orderNumber: 1234,
         user: "5c06c4f1973b1acdf55d4062",
         drink: "5c06c4f1973b1acdf55d405e",

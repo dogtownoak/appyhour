@@ -5,7 +5,7 @@ const
     cors = require('cors'),
     bodyParser = require('body-parser'),
     db = require('./models')
-    // ctrl = require('./controllers')
+    ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -21,48 +21,18 @@ app.get('/', (req, res) => {
 
 //Routes
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
-});
+//Index
+app.get('/api/orders', ctrl.order.index);
 
-// Endpoint functionality:
-    // Full CRUD order
+//Create
+app.post('/api/orders', ctrl.order.create);
 
+//Update
+app.put('/api/orders/:id', ctrl.order.update);
 
-////////////// SHOW INDEX OF ORDERS /////////////////////////////
-app.get('/api/orders', (req, res) => {
-    db.Order.find({})
-    .populate('user')
-    .populate('drink')
-    .populate('appetizer')
-    .exec(function(err, allOrders){
-        if(err) return console.log(err);
-        res.json({'data': allOrders});
-    })
-});
+//Delete
+app.delete('/api/orders/:id', ctrl.order.delete);
 
-////////////// UPDATE ORDER ////////////////
-app.put('/api/orders/:id', (req,res) => {
-    var orderId = req.params.id;
-    var order = req.body;
-    db.Order.findByIdAndUpdate({_id: orderId}, order, (err, updatedOrder) => {
-        if (err) { 
-            return console.log(err);
-        }
-        res.json(updatedOrder);
-    })
-});
-
-////////////// DELETE ORDER //////////////////////////////////////
-app.delete('/api/orders/:id', (req, res) => {
-   var orderId = req.params.id;
-    db.Order.findByIdAndDelete({_id: orderId}, (err, deletedOrder) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.json(deletedOrder);
-    })
-});
 
 //Server Start
 app.listen(3000, () => {
