@@ -2,12 +2,14 @@
 const
     express = require('express'),
     app = express(),
+    cors = require('cors'),
     bodyParser = require('body-parser'),
     db = require('./models')
     // ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 //serve static files from public folder
 app.use(express.static(__dirname + '/public'));
