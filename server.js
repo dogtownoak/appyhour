@@ -2,12 +2,14 @@
 const
     express = require('express'),
     app = express(),
+    cors = require('cors'),
     bodyParser = require('body-parser'),
     db = require('./models')
     // ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 //serve static files from public folder
 app.use(express.static(__dirname + '/public'));
@@ -39,7 +41,17 @@ app.get('/api/orders', (req, res) => {
     })
 });
 
-
+////////////// UPDATE ORDER ////////////////
+app.put('/api/orders/:id', (req,res) => {
+    var orderId = req.params.id;
+    var order = req.body;
+    db.Order.findByIdAndUpdate({_id: orderId}, order, (err, updatedOrder) => {
+        if (err) { 
+            return console.log(err);
+        }
+        res.json(updatedOrder);
+    })
+});
 
 ////////////// DELETE ORDER //////////////////////////////////////
 app.delete('/api/orders/:id', (req, res) => {
