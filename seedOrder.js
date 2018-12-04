@@ -6,9 +6,25 @@ var order_list = [
         dateValid: new Date("2018-12-14"),
         dateOrdered: new Date("2018-12-13"),
         orderNumber: 1234,
-        user: "5c05c735e2256dae859d4bbf",
-        drink: "5c05c735e2256dae859d4bc0",
-        appetizer: "5c05c735e2256dae859d4bbe"
+        user: "5c06bedda15273caa916dbd7",
+        drink: "5c06bedda15273caa916dbd8",
+        appetizer: "5c06bedda15273caa916dbd6"
+    },
+    {
+        dateValid: new Date("2018-12-10"),
+        dateOrdered: new Date("2018-12-10"),
+        orderNumber: 1234,
+        user: "5c06bedda15273caa916dbd7",
+        drink: "5c06bedda15273caa916dbd8",
+        appetizer: "5c06bedda15273caa916dbd6"
+    },
+    {
+        dateValid: new Date("2018-12-10"),
+        dateOrdered: new Date("2018-12-10"),
+        orderNumber: 1234,
+        user: "5c06bedda15273caa916dbd7",
+        drink: "5c06bedda15273caa916dbd8",
+        appetizer: "5c06bedda15273caa916dbd6"
     }
 ];
 
