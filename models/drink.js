@@ -7,7 +7,7 @@ const DrinkSchema = new Schema({
     style: String,
     brand: String,
     image: String,
-    desription: String,
+    description: String,
     dateValid: Date,
     business: String,
     businessAddress: String,
