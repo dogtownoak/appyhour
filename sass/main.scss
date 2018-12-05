@@ -90,6 +90,21 @@ input[type=submit]:hover {
     border: 1px black solid;
 }
 
+.order {
+    background-color: rgba(0,0,0,.5);
+    width: 100vw;
+    height: 100vh;
+}
+
+button, a {
+    border: 1px white solid;
+}
+
+.appContainer {
+    background-color: (0,0,0,.5);
+    border: 2px red solid;
+}
+
  .hidden {
      display:none;
  }
