@@ -24,7 +24,7 @@
      border: 2px white solid;
  }
 
-.appetizer, .drink {
+.appetizerOptions, .drinkOptions {
     height: 50vh;
     width: 100vw;
     border: 1px white solid;
@@ -37,6 +37,9 @@
     background-color: rgba(255,255,255, .15);
 }
 
+.appContainer, .appWrapper, img, h3, p {
+    border: 1px black solid;
+}
 
  .hidden {
      display:none;

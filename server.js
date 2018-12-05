@@ -19,7 +19,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-//Routes
+
+
+//Routes: Orders
 
 //Index
 app.get('/api/orders', ctrl.order.index);
@@ -32,6 +34,11 @@ app.put('/api/orders/:id', ctrl.order.update);
 
 //Delete
 app.delete('/api/orders/:id', ctrl.order.delete);
+
+//Routes: Drinks
+
+//Index
+app.get('/api/appetizers', ctrl.appetizer   .index);
 
 
 //Server Start
