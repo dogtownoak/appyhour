@@ -5,7 +5,7 @@ module.exports = {
         db.Drink.find({})
         .exec(function(err, allDrinks){
             if(err) return console.log(err);
-            res.json(allDrinks);
+        res.json(allDrinks);
         })
     },
 }
