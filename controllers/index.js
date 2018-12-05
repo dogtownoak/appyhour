@@ -1,4 +1,5 @@
 module.exports = {
     order: require('./orderController'),
-    drink: require('./drinkController')
+    drink: require('./drinkController'),
+    appetizer: require('./appetizerController')
 }
