@@ -21,6 +21,12 @@ app.get('/', (req, res) => {
 
 //Routes
 
+//------Drinks------//
+app.get('/api/drinks', ctrl.drink.index);
+
+
+
+//------Orders--------//
 //Index
 app.get('/api/orders', ctrl.order.index);
 
