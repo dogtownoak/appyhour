@@ -13,25 +13,7 @@ module.exports = {
     },
 
     create: (req, res) => {
-        var newOrder = new db.Order({
-            dateValid: req.body.dateValid,
-            dateOrdered: req.body.dateOrdered,
-            orderNumber: req.body.orderNumber
-        });
-    
-        db.User.findOne({_id: req.body.user}, (err, user) => {
-            newOrder.user = user;
-        })
-
-        db.Appetizer.findOne({_id: req.body.appetizer}, (err, appetizer) => {
-            newOrder.appetizer = appetizer;
-        })
-
-        db.Drink.findOne({_id: req.body.drink}, (err, drink) => {
-            newOrder.drink = drink;
-        })
-
-        newOrder.save((err, order) => {
+        db.Order.create(req.body, (err, order) => {
             if (err) {
                 return console.log(err);
             } 

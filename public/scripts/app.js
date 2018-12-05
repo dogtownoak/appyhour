@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 //////////// GET ALL APPETIZERS AND APPEND TO PAGE ///////////////////////////////
     var appetizersUrl =
-    `http://localhost:3000/api/appetizers`
+    `/api/appetizers`
 
     $.ajax({
         method: 'GET',
@@ -57,10 +57,10 @@ $(document).ready(function(){
         } 
         function onSuccess (appetizers) {
             console.log(appetizers);
-            $('.appContainer').empty();
+            $('.appetizerList').empty();
             appetizers.forEach(appetizer => {
                 var card1 =
-                `<div class="appContainer>
+                `<div class="appCard" data-id= ${appetizer._id}>
                 <img src="${appetizer.image}">
                     <div class="textContainer">
                         <p>${appetizer.type}, Type: ${appetizer.style}</p>
@@ -73,11 +73,81 @@ $(document).ready(function(){
                         <button class="orderItem" type="button">Reserve</button>
                     </div>
                 </div>`
-
-                $('.appContainer').append(card1);
+                $('.appetizerList').append(card1);
             })
         }
+    
+///////////// CREATE ORDER /////////////////////////
+
+    $('.appetizerList').on('click', '.appCard' , function(){
+
+    var ordersUrl = '/api/orders'
+    var appId = $(this).data()
+    var today = new Date()
+    var tomorrow = today.getDate()+1
+
+    var newOrder = {
+            dateValid: tomorrow,
+            dateOrdered: today,
+            orderNumber: Math.floor(1000 + Math.random() * 9000),
+            user: "5c0829fec4a17ff9bb463549",
+            appetizer: appId.id,
+        };
+
+
+    $.ajax({
+        method: 'POST',
+        url: ordersUrl,
+        data: newOrder,
+        success: onSuccess,
+        error: onError,
     });
+
+        function onError ( err ) {
+            console.log( err );
+        }
+        function onSuccess (order) {
+           console.log(`Order Created:`, order)
+        }
+
+    });
+
+
+
+
+
+
+    //     create: (req, res) => {
+    //         var newOrder = new db.Order({
+    //             dateValid: req.body.dateValid,
+    //             dateOrdered: req.body.dateOrdered,
+    //             orderNumber: req.body.orderNumber
+    //         });
+        
+    //         db.User.findOne({_id: req.body.user}, (err, user) => {
+    //             newOrder.user = user;
+    //         })
+    
+    //         db.Appetizer.findOne({_id: req.body.appetizer}, (err, appetizer) => {
+    //             newOrder.appetizer = appetizer;
+    //         })
+    
+    //         db.Drink.findOne({_id: req.body.drink}, (err, drink) => {
+    //             newOrder.drink = drink;
+    //         })
+    
+    //         newOrder.save((err, order) => {
+    //             if (err) {
+    //                 return console.log(err);
+    //             } 
+    //             res.json(order);
+    //         })
+    //     },
+
+
+
+
+
 
 //var orders_endpoint = "/api/orders"
 // var orders_endpoint = "http://localhost:3000/api/orders/"
