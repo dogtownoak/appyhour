@@ -73,7 +73,7 @@ $(document).ready(function(){
                         <div class="textWrapperPopUp hidden">
                             <p>${appetizer.type}</p>
                             <p>${appetizer.description}</p>
-                            <button class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
+                            <button id="cancel" class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
                         </div>
                     </div>
                 </div>`
@@ -83,49 +83,9 @@ $(document).ready(function(){
     
 ///////////// CREATE ORDER /////////////////////////
 
-    $('.appetizerList').one('click', '.orderItem', function(e){
-        e.preventDefault();
-        console.log(e)
-        // e.prop('tagName')
+ 
 
-
-    var ordersUrl = '/api/orders'
-    var appId = $(this).data()
-    console.log(appId)
-    var today = new Date()
-    var tomorrow = new Date((new Date()).valueOf() + 1000*3600*24)
-
-    var newOrder = {
-            dateValid: tomorrow,
-            dateOrdered: today,
-            orderNumber: Math.floor(1000 + Math.random() * 9000),
-            user: "5c0829fec4a17ff9bb463549",
-            appetizer: appId.id,
-        };
-
-
-    $.ajax({
-        method: 'POST',
-        url: ordersUrl,
-        data: newOrder,
-        success: onSuccess,
-        error: onError,
-    });
-
-        function onError ( err ) {
-            console.log( err );
-        }
-        function onSuccess (order) {
-           console.log(`Order Created:`, order)
-           $('#orderNumber').text(order.orderNumber)
-           $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
-        //    $('#cancel').attr("data-id=123")
-   
-        //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
-    }
-    });
-
-    ////////////////////ORDER FUNCTIONS ///////////////////////////
+    //////////////APPETIZER CARD FUNCTIONS/////////
 
 
    $('.appetizerList').on('click', function(e){
@@ -134,21 +94,38 @@ $(document).ready(function(){
     var tag = e.target.tagName
     console.log(tag)
     if (tag === "BUTTON") {
-        $('body').addClass('orderBackground')
-        // $('.textContainer').toggleClass('hidden')
-        // $('.textWrapper').toggleClass('hidden')
+        $('.appetizerList').addClass('relativePosition')
+        $('.order').addClass('absolutePosition')
+        $('.order').removeClass('hidden')
         $('.textContainerPopUp').addClass('hidden')
         $('.textWrapperPopUp').addClass('hidden')
         $('.textContainer').removeClass('hidden')
         $('.textWrapper').removeClass('hidden')
     } else {
-    $('.textContainer', this).toggleClass('hidden')
-    $('.textWrapper', this).toggleClass('hidden')
-    $('.textContainerPopUp', this).toggleClass('hidden')
-    $('.textWrapperPopUp', this).toggleClass('hidden')
-    $('body').removeClass('orderBackground')
+        $('.textContainer', this).toggleClass('hidden')
+        $('.textWrapper', this).toggleClass('hidden')
+        $('.textContainerPopUp', this).toggleClass('hidden')
+        $('.textWrapperPopUp', this).toggleClass('hidden')
+        $('body').removeClass('orderBackground')
     } 
 });
+
+/////////////ORDER FUNCTIONS //////////////////////
+
+$('.order').on('click', function(e){
+    e.preventDefault();
+    console.log(e)
+    var tag = e.target.tagName
+    console.log(tag)
+    console.log("click")
+    if (tag === "A") {
+        $('.cancelOrderPopUp').removeClass('hidden')
+        $('.orderContainer').addClass('hidden')
+    } else if (tag === "H5") {
+        $('.cancelOrderPopUp').addClass('hidden')
+        $('.orderContainer').removeClass('hidden')
+    }
+
 
 
 
@@ -157,7 +134,6 @@ $(document).ready(function(){
     ///////////////////CANCEL ORDER ///////////////////////////////
     $('.order').one('click', '.cancelOrder', function(e){
         e.preventDefault();
-        console.log(e)
 
         orderId = $('#cancel').data().id
         console.log(orderId)
@@ -184,77 +160,77 @@ $(document).ready(function(){
 
 
 
-    // $('.appetizerList').on('click', '.appCard' , function(){
+    $('.appetizerList').on('click', '.appCard' , function(){
 
-    //     var ordersUrl = '/api/orders'
-    //     var appId = $(this).data()
-    //     var today = new Date()
-    //     var tomorrow = today.getDate()+1
+        var ordersUrl = '/api/orders'
+        var appId = $(this).data()
+        var today = new Date()
+        var tomorrow = today.getDate()+1
     
-    //     var newOrder = {
-    //             dateValid: tomorrow,
-    //             dateOrdered: today,
-    //             orderNumber: Math.floor(1000 + Math.random() * 9000),
-    //             user: "5c0829fec4a17ff9bb463549",
-    //             appetizer: appId.id,
-    //         };
+        var newOrder = {
+                dateValid: tomorrow,
+                dateOrdered: today,
+                orderNumber: Math.floor(1000 + Math.random() * 9000),
+                user: "5c0829fec4a17ff9bb463549",
+                appetizer: appId.id,
+            };
     
     
-    //     $.ajax({
-    //         method: 'POST',
-    //         url: ordersUrl,
-    //         data: newOrder,
-    //         success: onSuccess,
-    //         error: onError,
-    //     });
+        $.ajax({
+            method: 'POST',
+            url: ordersUrl,
+            data: newOrder,
+            success: onSuccess,
+            error: onError,
+        });
     
-    //         function onError ( err ) {
-    //             console.log( err );
-    //         }
-    //         function onSuccess (order) {
-    //            console.log(`Order Created:`, order)
-    //         }
+            function onError ( err ) {
+                console.log( err );
+            }
+            function onSuccess (order) {
+               console.log(`Order Created:`, order)
+            }
     
-    //     });
+        });
 
 
 
 
 
-    //     create: (req, res) => {
-    //         var newOrder = new db.Order({
-    //             dateValid: req.body.dateValid,
-    //             dateOrdered: req.body.dateOrdered,
-    //             orderNumber: req.body.orderNumber
-    //         });
+        // create: (req, res) => {
+        //     var newOrder = new db.Order({
+        //         dateValid: req.body.dateValid,
+        //         dateOrdered: req.body.dateOrdered,
+        //         orderNumber: req.body.orderNumber
+        //     });
         
-    //         db.User.findOne({_id: req.body.user}, (err, user) => {
-    //             newOrder.user = user;
-    //         })
+        //     db.User.findOne({_id: req.body.user}, (err, user) => {
+        //         newOrder.user = user;
+        //     })
     
-    //         db.Appetizer.findOne({_id: req.body.appetizer}, (err, appetizer) => {
-    //             newOrder.appetizer = appetizer;
-    //         })
+        //     db.Appetizer.findOne({_id: req.body.appetizer}, (err, appetizer) => {
+        //         newOrder.appetizer = appetizer;
+        //     })
     
-    //         db.Drink.findOne({_id: req.body.drink}, (err, drink) => {
-    //             newOrder.drink = drink;
-    //         })
+        //     db.Drink.findOne({_id: req.body.drink}, (err, drink) => {
+        //         newOrder.drink = drink;
+        //     })
     
-    //         newOrder.save((err, order) => {
-    //             if (err) {
-    //                 return console.log(err);
-    //             } 
-    //             res.json(order);
-    //         })
-    //     },
+        //     newOrder.save((err, order) => {
+        //         if (err) {
+        //             return console.log(err);
+        //         } 
+        //         res.json(order);
+        //     })
+        // },
 
 
 
 
 
 
-//var orders_endpoint = "/api/orders"
-// var orders_endpoint = "http://localhost:3000/api/orders/"
+var orders_endpoint = "/api/orders"
+var orders_endpoint = "http://localhost:3000/api/orders/"
 
 
 
@@ -269,7 +245,7 @@ $(document).ready(function(){
 //         console.log("There was an error getting the data");
 //     }
 // });
-// });
+});
 
 //////////// GET ALL APPETIZERS AND APPEND TO PAGE ///////////////////////////////
 

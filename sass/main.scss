@@ -89,6 +89,7 @@ background-color: rgba(10, 10, 10, 0.75);
 }
 
 
+
 .signUp h1 {
     text-align: center;
 }
@@ -173,12 +174,40 @@ input[type=submit]:hover {
 // }
 
 .order {
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.65);
     width: 100vw;
     height: 100vh;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-button, a {
+.orderPopUp {
+    background-color: rgb(196, 66, 66);
+    display: block;
+}
+
+.orderPopUp, .orderContainer, .cancelOrderPopup {
+    border: 2px white solid;
+
+}
+
+.orderContainer, .orderPopUp, .cancelOrderPopUp{
+    max-width: 400px;
+    min-height: 400px;
+}
+
+.orderContainer, .cancelOrderPopUp {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+
+button, a, h5 {
     border: 1px white solid;
 
 }
@@ -190,4 +219,16 @@ button, a {
 
  .hidden {
      display:none;
+ }
+
+ .relativePosition {
+     position: relative;
+ }
+
+ .absolutePosition {
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 10;
+
  }
