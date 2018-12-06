@@ -16,11 +16,15 @@ app.use(express.static(__dirname + '/public'));
 
 //HTML Endpoints
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/views/landingPage.html');
 });
 
 app.get('/drinksMenu', (req, res) => {
     res.sendFile(__dirname + '/views/drinks.html');
+});
+
+app.get('/appetizerMenu', (req, res) => {
+    res.sendFile(__dirname + '/views/appetizers.html');
 });
 
 
