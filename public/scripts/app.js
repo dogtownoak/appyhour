@@ -60,7 +60,7 @@ $(document).ready(function(){
             $('.appetizerList').empty();
             appetizers.forEach(appetizer => {
                 var card1 =
-                `<div class="appCard" data-id= ${appetizer._id}>
+                `<div class="appCard" >
                 <img src="${appetizer.image}">
                     <div class="textContainer">
                         <p>${appetizer.type}, Type: ${appetizer.style}</p>
@@ -70,7 +70,7 @@ $(document).ready(function(){
                     <div class="descriptionPopUp">
                         <p>${appetizer.type}, Type: ${appetizer.style}</p>
                         <p>${appetizer.description}</p>
-                        <button class="orderItem" type="button">Reserve</button>
+                        <button class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
                     </div>
                 </div>`
                 $('.appetizerList').append(card1);
@@ -79,12 +79,17 @@ $(document).ready(function(){
     
 ///////////// CREATE ORDER /////////////////////////
 
-    $('.appetizerList').on('click', '.appCard' , function(){
+    $('.appetizerList').one('click', '.orderItem', function(e){
+        e.preventDefault();
+        console.log(e)
+        // e.prop('tagName')
+
 
     var ordersUrl = '/api/orders'
     var appId = $(this).data()
+    console.log(appId)
     var today = new Date()
-    var tomorrow = today.getDate()+1
+    var tomorrow = new Date((new Date()).valueOf() + 1000*3600*24)
 
     var newOrder = {
             dateValid: tomorrow,
@@ -108,10 +113,81 @@ $(document).ready(function(){
         }
         function onSuccess (order) {
            console.log(`Order Created:`, order)
-        }
-
+           $('#orderNumber').text(order.orderNumber)
+           $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
+        //    $('#cancel').attr("data-id=123")
+   
+        //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
+    }
     });
 
+    ////////////////////ORDER FUNCTIONS ///////////////////////////
+
+    
+
+
+    ///////////////////CANCEL ORDER ///////////////////////////////
+    $('.order').one('click', '.cancelOrder', function(e){
+        e.preventDefault();
+        console.log(e)
+
+        orderId = $('#cancel').data().id
+        console.log(orderId)
+        var ordersUrl = `/api/orders/${orderId}`
+
+        $.ajax({
+            method: 'DELETE',
+            url: ordersUrl,
+            data: orderId,
+            success: onSuccess,
+            error: onError,
+
+        });
+            function onError ( err ) {
+                console.log( err );
+            }
+            function onSuccess (order) {
+            console.log(`Order Deleted:`, order)
+            }
+    });
+
+
+
+
+
+
+    // $('.appetizerList').on('click', '.appCard' , function(){
+
+    //     var ordersUrl = '/api/orders'
+    //     var appId = $(this).data()
+    //     var today = new Date()
+    //     var tomorrow = today.getDate()+1
+    
+    //     var newOrder = {
+    //             dateValid: tomorrow,
+    //             dateOrdered: today,
+    //             orderNumber: Math.floor(1000 + Math.random() * 9000),
+    //             user: "5c0829fec4a17ff9bb463549",
+    //             appetizer: appId.id,
+    //         };
+    
+    
+    //     $.ajax({
+    //         method: 'POST',
+    //         url: ordersUrl,
+    //         data: newOrder,
+    //         success: onSuccess,
+    //         error: onError,
+    //     });
+    
+    //         function onError ( err ) {
+    //             console.log( err );
+    //         }
+    //         function onSuccess (order) {
+    //            console.log(`Order Created:`, order)
+    //         }
+    
+    //     });
 
 
 
