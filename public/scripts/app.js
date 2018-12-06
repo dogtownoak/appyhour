@@ -61,11 +61,13 @@ $(document).ready(function(){
             appetizers.forEach(appetizer => {
                 var card1 =
                 `<div class="appCard" >
-                <img src="${appetizer.image}">
+                <img class="appImg" src="${appetizer.image}">
                     <div class="textContainer">
-                        <p>${appetizer.type}, Type: ${appetizer.style}</p>
-                        <p>${appetizer.business}</p>
-                        <p>${appetizer.businessAddress}</p>
+                        <div class="textWrapper">
+                            <p>${appetizer.type}</p>
+                            <p>${appetizer.business}</p>
+                            <p>${appetizer.businessAddress}</p>
+                        </div>
                     </div>
                     <div class="descriptionPopUp">
                         <p>${appetizer.type}, Type: ${appetizer.style}</p>

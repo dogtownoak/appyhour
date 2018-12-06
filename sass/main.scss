@@ -1,7 +1,65 @@
  * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
+body, main, p {
+    margin: 0;
+}
+
+.appetizerList {
+    display: grid;
+    grid-row-gap: 85px;
+    grid-column-gap: 85px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+}
+
+.appCard, .textContainer, .descriptionPopUp {
+    display: block;
+    width: 100%;
+    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
+}
+
+.appImg {
+    z-index: -1;
+    position: absolute;
+}
+
+.appCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.textContainer {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+    max-height: 240px; 
+}
+    p {
+        text-align: center;
+        font-weight: 550;
+    }
+
+.textWrapper {
+    background-color: rgba(255,255,255, .75);
+    padding: .8em 1em;
+    font-size: 1em;
+}
+
+
+.descriptionPopUp {
+    display: none;
+}
+
+
+
+// div {
+//     border: 1px greenyellow solid;
+// }
 
 .hidden {
     display:none;
@@ -51,16 +109,16 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
- div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100vw;
-    height: 100vh;
-    background-color: tan;
- }
+//  div {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: tan;
+//  }
 
  form {
     display: flex;
@@ -86,9 +144,9 @@ input[type=submit]:hover {
     background-color: rgba(255,255,255, .15);
 }
 
-.appContainer, .appWrapper, img, h3, p {
-    border: 1px black solid;
-}
+// .appContainer, .appWrapper, img, h3, p {
+//     border: 1px black solid;
+// }
 
 .order {
     background-color: rgba(0,0,0,.5);
@@ -100,10 +158,10 @@ button, a {
     border: 1px white solid;
 }
 
-.appContainer {
-    background-color: (0,0,0,.5);
-    border: 2px red solid;
-}
+// .appContainer {
+//     background-color: (0,0,0,.5);
+//     border: 2px red solid;
+// }
 
  .hidden {
      display:none;
