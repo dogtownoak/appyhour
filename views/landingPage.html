@@ -1,76 +1,46 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HappyHour Pal</title>
-    <!-- appyprice, myappyhour, yourappyhour, ourappyhour, justoneappy, appyhookup, happyhourexplorer, buymyhour, happyhourmaker, hourmaker, appyhourdeal, appyhourscore 
-    appyexplorer, lowertab, hourreward, appyscore -->
+    <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" >
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/landing.css" />
+    <script src="main.js"></script>
 </head>
 <body>
-  <header class="hidden">
-    <nav>
-      <h1>Under Construction</h1>
-      <ul>
-        <li>
-          <a href="#">Nav item 1</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="landingPage hidden">
+    <header>
+        <h1></h1>
+    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="images/landing.mp4" type="video/mp4">
+    </video>
+    <section class="loginSignUp hidden">
+        <div class="signUpBox">
+            <h1>Sign Up</h1>
+                <input type="text" name="firstName" placeholder="First Name"/>
+                <input type="text" name="lastName" placeholder="Last Name"/>
+                <input type="text" name="username" placeholder="Username"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <input type="password" name="password2" placeholder="Re-Type Password"/>
+                <input type="submit" name="signUpButton" value="Sign Up"/>
+        </div>
+        <div class="loginBox">
+            <h1>Log In</h1>
+                <input type="text" name="username" placeholder="Username"/>
+                <input type="password" name="password" placeholder="Password"/>
+                <input type="submit" name="loginButton" value="Log In"/>
+        </div>
+        <div class="or">OR</div>
     </section>
-    <section class="login hidden">
-      <div>
-          <form>
-            <input type="Text" name="userName" placeholder="User Name" class="col-half" required>
-            <input type="Text" name="password" placeholder="Password" class="col-half" required>
-            <button type="submit" class="login">Submit</button>
-          </form>
-      </div>
+    <section class="drinkAppChoice">
+        <div class="appetizerOptions">
+            <h1 id="appetizerButton">Appetizer</h1>
+        </div>
+        <div class="drinkOptions">
+            <h1 id="drinkButton">Drink</h1>
+        </div>
     </section>
-    <section class="signUp hidden">
-      <h1>Sign Up</h1>
-      <form>
-        <div>
-          <label>Create Username</label>
-          <input type="text" name="username" placeholder="Username" required>
-        </div>
-        <div>
-          <label>Enter E-mail</label>
-          <input type="text" name="email" placeholder="Email" required>
-        </div>
-        <div>
-          <labe>Create Password</labe>
-          <input type="password" name="password" placeholder="Password" required>
-        </div>
-        <div>
-          <label>Re-enter Password</label>
-          <input type="password" name="password2" placeholder="Retype Password" required>
-        </div>
-        <div class="button">
-            <input type="submit" value="Sign Up">
-        </div>
-      </form>
-    </section>
-    <section class="drinkOrAP hidden">
-      <div class="appetizerOptions">
-        <h1 id="appetizerButton">Appetizer</h1>
-      </div>
-      </atricle>
-    </section>
-  </main>
-  <footer class="hidden">
-    <h4>Footer</h4>
-  </footer>
-  <script src="scripts/app.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
