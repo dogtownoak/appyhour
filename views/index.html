@@ -8,15 +8,14 @@
     <!-- appyprice, myappyhour, yourappyhour, ourappyhour, justoneappy, appyhookup, happyhourexplorer, buymyhour, happyhourmaker, hourmaker, appyhourdeal, appyhourscore 
     appyexplorer, lowertab, hourreward, appyscore -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/public/styles/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" >
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-    <!-- <script src="/public/scripts/app.js"></script> -->
 </head>
 <body>
-  <header>
+  <header class="hidden">
     <nav>
       <h1>Under Construction</h1>
       <ul>
@@ -29,22 +28,77 @@
   <main>
     <section class="landingPage hidden">
     </section>
-    <section class="login">
+    <section class="login hidden">
+      <div>
+          <form>
+            <input type="Text" name="userName" placeholder="User Name" class="col-half" required>
+            <input type="Text" name="password" placeholder="Password" class="col-half" required>
+            <button type="submit" class="login">Submit</button>
+          </form>
+      </div>
     </section>
     <section class="signUp hidden">
+      <h1>Sign Up</h1>
+      <form>
+        <div>
+          <label>Create Username</label>
+          <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div>
+          <label>Enter E-mail</label>
+          <input type="text" name="email" placeholder="Email" required>
+        </div>
+        <div>
+          <labe>Create Password</labe>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+          <label>Re-enter Password</label>
+          <input type="password" name="password2" placeholder="Retype Password" required>
+        </div>
+        <div class="button">
+            <input type="submit" value="Sign Up">
+        </div>
+      </form>
     </section>
     <section class="drinkOrAP hidden">
+      <div class="appetizerOptions">
+        <h1 id="appetizerButton">Appetizer</h1>
+      </div>
+      <div class="drinkOptions">
+        <h1 id="drinkButton">Drink</h1>
+      </div>
     </section>
+
+
     <section class="drink hidden">
+      <h2>Drink Menu</h2>
+      <article class="drink-container">
+
+      </article>
     </section>
-    <section class="appetizer hidden">
+
+    <section class="appetizerList">
     </section>
+
     <section class="order hidden">
+      <atricle class="orderPopUp">
+        <div class="orderContainer">
+            <p id="orderNumber">Order Number</p>
+            <p>First Name</p>
+            <button type="button" class="closePopUp">Sounds Good</button>
+
+        </div>
+        <div class="cancelOrderPopUp">
+            <button type="button" class="cancelOrder">Delete Order</button>
+        </div>
+        
+      </atricle>
     </section>
   </main>
-  <footer>
+  <footer class="hidden">
     <h4>Footer</h4>
   </footer>
-  <script src="/public/scripts/app.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
