@@ -3,7 +3,7 @@
   font-family: sans-serif;
 }
 
-body, main, p {
+body, main, p, button {
   margin: 0;
 }
 
@@ -46,17 +46,42 @@ p {
 }
 
 .textWrapper {
+  display: flex;
+  flex-direction: column;
   background-color: rgba(255, 255, 255, 0.75);
   padding: 0.8em 1em;
   font-size: 1em;
 }
 
-.descriptionPopUp {
-  display: none;
+.textContainerPopUp {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+  max-height: 240px;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.textWrapperPopUp {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0.8em 1em;
+  font-size: 1em;
+}
+
+.orderItem {
+  align-self: center;
 }
 
 .hidden {
   display: none;
+}
+
+.orderBackground {
+  background-color: rgba(10, 10, 10, 0.75);
 }
 
 .signUp h1 {

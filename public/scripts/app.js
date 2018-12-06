@@ -69,10 +69,12 @@ $(document).ready(function(){
                             <p>${appetizer.businessAddress}</p>
                         </div>
                     </div>
-                    <div class="descriptionPopUp">
-                        <p>${appetizer.type}, Type: ${appetizer.style}</p>
-                        <p>${appetizer.description}</p>
-                        <button class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
+                    <div id="popUp" class="textContainerPopUp hidden">
+                        <div class="textWrapperPopUp hidden">
+                            <p>${appetizer.type}</p>
+                            <p>${appetizer.description}</p>
+                            <button class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
+                        </div>
                     </div>
                 </div>`
                 $('.appetizerList').append(card1);
@@ -125,7 +127,31 @@ $(document).ready(function(){
 
     ////////////////////ORDER FUNCTIONS ///////////////////////////
 
-    
+
+   $('.appetizerList').on('click', function(e){
+    e.preventDefault();
+    console.log(e)
+    var tag = e.target.tagName
+    console.log(tag)
+    if (tag === "BUTTON") {
+        $('body').addClass('orderBackground')
+        // $('.textContainer').toggleClass('hidden')
+        // $('.textWrapper').toggleClass('hidden')
+        $('.textContainerPopUp').addClass('hidden')
+        $('.textWrapperPopUp').addClass('hidden')
+        $('.textContainer').removeClass('hidden')
+        $('.textWrapper').removeClass('hidden')
+    } else {
+    $('.textContainer', this).toggleClass('hidden')
+    $('.textWrapper', this).toggleClass('hidden')
+    $('.textContainerPopUp', this).toggleClass('hidden')
+    $('.textWrapperPopUp', this).toggleClass('hidden')
+    $('body').removeClass('orderBackground')
+    } 
+});
+
+
+
 
 
     ///////////////////CANCEL ORDER ///////////////////////////////
@@ -154,7 +180,7 @@ $(document).ready(function(){
     });
 
 
-
+    
 
 
 
