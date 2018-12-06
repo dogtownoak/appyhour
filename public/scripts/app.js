@@ -41,6 +41,47 @@ $(document).ready(function(){
         }
     });
 
+////CREATE DRINK ORDER//////
+$('.appetizerList').one('click', '.orderItem', function(e){
+    e.preventDefault();
+    console.log(e)
+
+
+var ordersUrl = '/api/orders'
+var appId = $(this).data()
+console.log(appId)
+var today = new Date()
+var tomorrow = new Date((new Date()).valueOf() + 1000*3600*24)
+
+var newOrder = {
+        dateValid: tomorrow,
+        dateOrdered: today,
+        orderNumber: Math.floor(1000 + Math.random() * 9000),
+        user: "5c0829fec4a17ff9bb463549",
+        appetizer: appId.id,
+    };
+
+
+$.ajax({
+    method: 'POST',
+    url: ordersUrl,
+    data: newOrder,
+    success: onSuccess,
+    error: onError,
+});
+
+    function onError ( err ) {
+        console.log( err );
+    }
+    function onSuccess (order) {
+        console.log(`Order Created:`, order)
+        $('#orderNumber').text(order.orderNumber)
+        $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
+    //    $('#cancel').attr("data-id=123")
+    //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
+}
+});
+
 //////////// GET ALL APPETIZERS AND APPEND TO PAGE ///////////////////////////////
     var appetizersUrl =
     `/api/appetizers`
@@ -77,7 +118,7 @@ $(document).ready(function(){
             })
         }
     
-///////////// CREATE ORDER /////////////////////////
+///////////// CREATE APPETIZER ORDER /////////////////////////
 
     $('.appetizerList').one('click', '.orderItem', function(e){
         e.preventDefault();
@@ -112,11 +153,10 @@ $(document).ready(function(){
             console.log( err );
         }
         function onSuccess (order) {
-           console.log(`Order Created:`, order)
-           $('#orderNumber').text(order.orderNumber)
-           $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
+            console.log(`Order Created:`, order)
+            $('#orderNumber').text(order.orderNumber)
+            $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
         //    $('#cancel').attr("data-id=123")
-   
         //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
     }
     });
