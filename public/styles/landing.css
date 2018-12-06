@@ -7,6 +7,11 @@ body {
     font-weight: 300;
 }
 
+.hidden {
+    display: none;
+}
+
+
 #myVideo {
     position: fixed;
     top:0;
@@ -17,7 +22,7 @@ body {
     min-height: 100%;
 }
 
-#loginSignUp {
+.loginSignUp {
     position: relative;
     margin: 5% auto;
     height: 400px;
@@ -104,5 +109,23 @@ input[type="submit"]:hover, input[tyoe="submit"]:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .7);
     line-height:40px;
     text-align: center;
+    
+}
+
+.drinkAppChoice {
+    position: relative;
+    margin: 5% auto;
+    height: 400px;
+    width: 600px;
+    background-color: #fff;
+    opacity: .5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.appetizerOptions {
+
+}
+
+.drinkOptions {
     
 }
