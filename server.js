@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/drinks', (req, res) => {
+app.get('/drinksMenu', (req, res) => {
     res.sendFile(__dirname + '/views/drinks.html');
 });
 
