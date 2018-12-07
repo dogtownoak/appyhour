@@ -178,7 +178,7 @@ $('#apList').on('click', function(e){
     } 
 });
 ////////////////////ORDER DRINK FUNCTIONS //////////////////////////
-$('#dList').on('click', function(e){
+$('#drinkList').on('click', function(e){
     e.preventDefault();
     console.log(e)
     var tag = e.target.tagName
@@ -218,6 +218,7 @@ $('.order').on('click', function(e){
         $('#apList').addClass('hidden')
         $('#drinkList').addClass('hidden')
         $('#cancelOrder').addClass('hidden')
+        $('#cancel').addClass('hidden')
         $('header').addClass('hidden')
         $('.video').removeClass('hidden')
         $('H4').text("Enjoy!")
@@ -253,7 +254,7 @@ $('.order').on('click', function(e){
     $('#dOrder').on('click', '.cancelOrder', function(e){
         e.preventDefault();
  
-        orderId = $('#cancelOrder').data().id
+        orderId = $('#cancel').data().id
         console.log(orderId)
         var ordersUrl = `/api/orders/${orderId}`
         console.log(ordersUrl)
@@ -275,4 +276,3 @@ $('.order').on('click', function(e){
             alert('Your order was deleted')
             }
         })
-    });
