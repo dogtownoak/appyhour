@@ -183,6 +183,11 @@
     padding: 1em;
 }
 // VIDEO
-#appVideo {
+#video, #appVideo, .appVieo {
     width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
 }
