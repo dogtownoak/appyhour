@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log("jQuery up and running");
+
   
 ////GET ALL DRINKS AND APPEND TO PAGE////
     var drinkUrl = `/api/drinks`
@@ -98,7 +99,7 @@ $.ajax({
             $('.appetizerList').empty();
             appetizers.forEach(appetizer => {
                 var card1 =
-                `<div class="appCard" >
+                `<div class="appCard" data-id= ${appetizer._id} >
                 <img class="appImg" src="${appetizer.image}">
                     <div class="textContainer">
                         <div class="textWrapper">
@@ -120,10 +121,17 @@ $.ajax({
         }
     
 ///////////// CREATE APPETIZER ORDER /////////////////////////
+$('.appetizerList').one('click', '.appCard', function(e){
+    e.preventDefault()
+    console.log(`${e} creat order click`)
 
- 
+    var ordersUrl = '/api/orders'
+    console.log(ordersUrl)
+    var appId = $(this).data()
+    console.log(appId.id)
+    var today = new Date()
+    var tomorrow = today.getDate()+1
 
-    //////////////APPETIZER CARD FUNCTIONS/////////
     var newOrder = {
             dateValid: tomorrow,
             dateOrdered: today,
@@ -140,24 +148,24 @@ $.ajax({
         success: onSuccess,
         error: onError,
     });
-
+    
         function onError ( err ) {
             console.log( err );
         }
         function onSuccess (order) {
-            console.log(`Order Created:`, order)
-            $('#orderNumber').text(order.orderNumber)
-            $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
-        //    $('#cancel').attr("data-id=123")
-        //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
-    }
+           console.log(`Order Created:`, order)
+           $('#orderNumber').text(order.orderNumber)
+            $('.orderContainer').append(`<a id="cancelOrder" data-id=${order._id} href="#"> Changed Your Mind One?</a>`)
+        }
+
     });
+
+
 
     ////////////////////ORDER FUNCTIONS ///////////////////////////
 
 
-
-   $('.appetizerList').on('click', function(e){
+   $('#apList').on('click', function(e){
     e.preventDefault();
     console.log(e)
     var tag = e.target.tagName
@@ -183,7 +191,6 @@ $.ajax({
 
 $('.order').on('click', function(e){
     e.preventDefault();
-    console.log(e)
     var tag = e.target.tagName
     console.log(tag)
     console.log("click")
@@ -196,22 +203,19 @@ $('.order').on('click', function(e){
     }
 
 
-
-
-
-
     ///////////////////CANCEL ORDER ///////////////////////////////
-    $('.order').one('click', '.cancelOrder', function(e){
+    $('#apOrder').on('click', '.cancelOrder', function(e){
         e.preventDefault();
 
-        orderId = $('#cancel').data().id
-        //console.log(orderId)
+        orderId = $('#cancelOrder').data().id
+        console.log(orderId)
         var ordersUrl = `/api/orders/${orderId}`
+        console.log(ordersUrl)
 
         $.ajax({
             method: 'DELETE',
             url: ordersUrl,
-            data: orderId,
+            // data: orderId,
             success: onSuccess,
             error: onError,
 
@@ -222,98 +226,8 @@ $('.order').on('click', function(e){
             function onSuccess (order) {
             console.log(`Order Deleted:`, order)
             }
-    });
+        })
+    })
 
-
-
-   
-    $('.appetizerList').on('click', '.appCard' , function(){
-
-        var ordersUrl = '/api/orders'
-        var appId = $(this).data()
-        var today = new Date()
-        var tomorrow = today.getDate()+1
-    
-        var newOrder = {
-                dateValid: tomorrow,
-                dateOrdered: today,
-                orderNumber: Math.floor(1000 + Math.random() * 9000),
-                user: "5c0829fec4a17ff9bb463549",
-                appetizer: appId.id,
-            };
-    
-    
-        $.ajax({
-            method: 'POST',
-            url: ordersUrl,
-            data: newOrder,
-            success: onSuccess,
-            error: onError,
-        });
-    
-            function onError ( err ) {
-                console.log( err );
-            }
-            function onSuccess (order) {
-               console.log(`Order Created:`, order)
-            }
-    
-        });
-
-
-
-
-
-        // create: (req, res) => {
-        //     var newOrder = new db.Order({
-        //         dateValid: req.body.dateValid,
-        //         dateOrdered: req.body.dateOrdered,
-        //         orderNumber: req.body.orderNumber
-        //     });
-        
-        //     db.User.findOne({_id: req.body.user}, (err, user) => {
-        //         newOrder.user = user;
-        //     })
-    
-        //     db.Appetizer.findOne({_id: req.body.appetizer}, (err, appetizer) => {
-        //         newOrder.appetizer = appetizer;
-        //     })
-    
-        //     db.Drink.findOne({_id: req.body.drink}, (err, drink) => {
-        //         newOrder.drink = drink;
-        //     })
-    
-        //     newOrder.save((err, order) => {
-        //         if (err) {
-        //             return console.log(err);
-        //         } 
-        //         res.json(order);
-        //     })
-        // },
-
-
-
-
-
-
-var orders_endpoint = "/api/orders"
-var orders_endpoint = "http://localhost:3000/api/orders/"
-
-
-
-// //////////// GET ALL ORDERS //////////////////////////////////
-// $.ajax({
-//     method: 'GET',
-//     url: `${orders_endpoint}`,
-//     success: function( response ) {
-//         console.log( response );
-//     },
-//     error: function() {
-//         console.log("There was an error getting the data");
-//     }
-// });
-});
-
-//////////// GET ALL APPETIZERS AND APPEND TO PAGE ///////////////////////////////
-
-
+// var orders_endpoint = "/api/orders"
+// var orders_endpoint = "http://localhost:3000/api/orders/"
