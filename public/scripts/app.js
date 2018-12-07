@@ -22,16 +22,20 @@ $(document).ready(function(){
         drinks.forEach(drink => {
             let card1 = `
             <div class="drinkCard">
-            <img src="${drink.image}" >
+            <img class="drinkImg" src="${drink.image}" >
                 <div class="textContainer">
+                    <div class="textWrapper">
                     <p>${drink.brand}, ${drink.style}</p>
                     <p>${drink.business}</p>
                     <p>${drink.businessAddress}</p>
+                    </div>
                 </div>
-            <div class="descriptionPopUp">
-                <p>${drink.brand}, ${drink.style}</p>
-                <p>${drink.description}</p>
-                <button type="button" class="orderItem" data-id= ${drink._id}>Reserve</button>
+            <div id="popUp" class="textContainerPopUp hidden">
+                <div class="textWrapperPopUp hidden">
+                    <p>${drink.brand}, ${drink.style}</p>
+                    <p>${drink.description}</p>
+                    <button id="cancelD" type="button" class="orderItem" data-id= ${drink._id}>Reserve</button>
+                </div>
             </div>
             </div>
             `

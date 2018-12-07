@@ -7,25 +7,25 @@ body, main, p, button {
   margin: 0;
 }
 
-.appetizerList {
+.appetizerList, .drinkList {
   display: grid;
   grid-row-gap: 85px;
   grid-column-gap: 85px;
   grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
 }
 
-.appCard, .textContainer, .descriptionPopUp {
+.appCard, .textContainer, .descriptionPopUp, .drinkCard {
   display: block;
   width: 100%;
   box-shadow: -11px 21px 21px rgba(0, 0, 0, 0.1);
 }
 
-.appImg {
+.appImg, .drinkImg {
   z-index: -1;
   position: absolute;
 }
 
-.appCard {
+.appCard, .drinkCard {
   display: flex;
   flex-direction: column;
 }
