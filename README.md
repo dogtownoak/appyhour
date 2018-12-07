@@ -1,5 +1,5 @@
 # AppyHour
-A web application that lets a user select a drink :beer: or appetizer :meat-on-bone: "deal of the day", to be redeemed the following day.  
+A web application that lets a user select a drink :beer: or appetizer "deal of the day", to be redeemed the following day.  
 
 ## Technologies Used
 * Express API
