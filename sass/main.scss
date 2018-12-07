@@ -1,6 +1,8 @@
 @import 'variables';
-@import 'partial';
- 
+@import 'mediaQueries';
+@import 'landing';
+@import 'appsAndDrinks';
+
  * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -8,6 +10,31 @@
 
 body, main, p, button {
     margin: 0;
+    main {
+        padding: 5vw;
+    }
+}
+
+header, header + h1 {
+    background-color: $headerColor;
+    h1 {
+        color: white;
+        letter-spacing: .2em;
+    }
+}
+
+footer {
+    background-color: #57C5E7;
+    color: white;
+    letter-spacing: .2em;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    box-shadow: 11px -21px 21px rgba(0, 0, 0, .1);
+
 }
 
 button, a, h5, h4 {
@@ -24,231 +51,10 @@ button, a, h5, h4 {
     #cancelOrder {
         font-size: .75em;
     }
-
-}
-//  APPETIZERS AND DRINKS
-
-.appHeader, .drinkHeader {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5em;
-    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
-}
-
-.appH1, .drinkH1 {
-    height: 4vh;
-    margin: .25em;
-    display: block;
-    align-self: flex-end;
-}
-
-.appetizerList, .drinkList {
-    display: grid;
-    grid-row-gap: 85px;
-    grid-column-gap: 85px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
-}
-
-.appCard, .textContainer, .descriptionPopUp, .drinkCard {
-    display: block;
-    width: 100%;
-    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
-}
-
-.appImg, .drinkImg {
-    z-index: -1;
-    position: absolute;
-}
-
-.appCard, .appImg, .textContainer, .drinkCard, .drinkImg {
-    border-radius: $cardBorderRadius;
-}
-
-.textWrapper, .textWrapperPopUp, .textWrapper {
-    border-bottom-left-radius: $cardBorderRadius;
-    border-bottom-right-radius: $cardBorderRadius;
-}
-
-.appCard, .drinkCard {
-    display: flex;
-    flex-direction: column;
-}
-
-.textContainer  {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 240px;
-    max-height: 240px;
 }
 
 p {
         text-align: center;
-        // font-weight: 550;
 }
 
-.textWrapper{
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255,255,255, .9);
-    padding: .8em 1em;
-    :first-child { 
-        font-size: 1.15em;
-        color: $mainColor;
-        font-weight: $mainFWeight;
-    }
-    :nth-last-child(2) {
-        font-size: .9em;
-        color: $secondaryTextColor;
-        font-weight: $mainSecFWeight;
-    }
-    :last-child {
-        color: $thirdTextColor;
-        font-weight: 400;
-        font-size: .85em;
-    }
-}
-
-.textContainerPopUp {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 240px;
-    max-height: 240px;
-    background-color: rgba(255,255,255, .35);
-    :first-child {
-        color: $mainColor;
-        font-weight: $cardOrderMainFWeight;
-    }
-}
-
-.textWrapperPopUp {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgba(255,255,255, .5);
-    min-height: 240px;
-    max-height: 240px;
-    padding: .8em 1em;
-    font-size: 1em;
-    :first-child {
-        color: $orderHeaderColor;
-        font-size: 1.5em;
-        font-weight: $cardOrderMainFWeight;
-    }
-}
-
-.appetizerOptions, .drinkOptions {
-    height: 50vh;
-    width: 100vw;
-    border: 1px white solid;
-}
-
-#appetizerButton, #drinkButton {
-    font-size: 3em;
-    border: 1px white solid;
-    padding: .5em;
-    background-color: rgba(255,255,255, .15);
-}
-
-//ORDER
-.orderItem {
-    align-self: center;
-}
-
-.appCard, .drinkCard {
-    transition: transform .2s;
-}
-
-.appCard:hover, .drinkCard:hover {
-    transform: scale(1.05);
-}
-.order {
-    background-color: rgba(0,0,0,.65);
-    width: 100vw;
-    height: 100vh;
-    display: flex;  
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.orderPopUp {
-    background-color: $mainColor;
-    display: block;
-}
-
-#orderNumber {
-    font-size: 4em;
-}
-
-#instructions {
-    border: 1px white solid;
-    border-radius: 10px;
-    padding: .5em;
-    em {
-        font-size: 1.35em;
-        font-weight: 800;
-    }
-}
-
-.orderPopUp, .cancelOrderPopup {
-    border: 2px white dashed;
-
-}
-
-.orderContainer, .orderPopUp, .cancelOrderPopUp{
-    max-width: 275px;
-    min-width: 275px;
-    min-height: 400px;
-}
-
-.orderContainer, .cancelOrderPopUp {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    padding: 1em;
-}
-// VIDEO
-#appVideo {
-    width: 100%;
-}
-
-//TOGGLE CLASSES
-
-.hidden {
-    display:none;
-}
-
-.orderBackground {
-background-color: rgba(10, 10, 10, 0.75);
-}
-
-.relativePosition {
-    position: relative;
-}
-
-.absolutePosition {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
-
-
-@media only screen and (max-width: 330px) {
-    .appHeader {
-        width: 100vw;
-        height: 10vh;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 5em;
-    }
-}
+@import 'toggleClasses';
