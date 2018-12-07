@@ -1,28 +1,12 @@
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
+@media only screen and (max-width: 330px) {
+  .appHeader {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5em;
+  }
 }
-
-body, main, p, button {
-  margin: 0;
-}
-
-button, a, h5, h4 {
-  border: 1px white solid;
-  background-color: #57C5E7;
-  color: #FFFFFF;
-  text-decoration: none;
-  min-width: 230px;
-  min-height: 40px;
-  font-size: 1.5em;
-  font-weight: 500;
-  padding: 0.2em 0.2em;
-  text-align: center;
-}
-button #cancelOrder, a #cancelOrder, h5 #cancelOrder, h4 #cancelOrder {
-  font-size: 0.75em;
-}
-
 .appHeader, .drinkHeader {
   width: 100vw;
   height: 10vh;
@@ -79,10 +63,6 @@ button #cancelOrder, a #cancelOrder, h5 #cancelOrder, h4 #cancelOrder {
   justify-content: flex-end;
   min-height: 240px;
   max-height: 240px;
-}
-
-p {
-  text-align: center;
 }
 
 .textWrapper {
@@ -214,6 +194,59 @@ p {
   width: 100%;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body, main, p, button {
+  margin: 0;
+}
+body main, main main, p main, button main {
+  padding: 5vw;
+}
+
+header, header + h1 {
+  background-color: #EC5344;
+}
+header h1, header + h1 h1 {
+  color: white;
+  letter-spacing: 0.2em;
+}
+
+footer {
+  background-color: #57C5E7;
+  color: white;
+  letter-spacing: 0.2em;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  box-shadow: 11px -21px 21px rgba(0, 0, 0, 0.1);
+}
+
+button, a, h5, h4 {
+  border: 1px white solid;
+  background-color: #57C5E7;
+  color: #FFFFFF;
+  text-decoration: none;
+  min-width: 230px;
+  min-height: 40px;
+  font-size: 1.5em;
+  font-weight: 500;
+  padding: 0.2em 0.2em;
+  text-align: center;
+}
+button #cancelOrder, a #cancelOrder, h5 #cancelOrder, h4 #cancelOrder {
+  font-size: 0.75em;
+}
+
+p {
+  text-align: center;
+}
+
 .hidden {
   display: none;
 }
@@ -231,16 +264,6 @@ p {
   top: 0;
   left: 0;
   z-index: 10;
-}
-
-@media only screen and (max-width: 330px) {
-  .appHeader {
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5em;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */

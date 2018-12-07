@@ -1,0 +1,20 @@
+//TOGGLE CLASSES
+
+.hidden {
+    display: none;
+}
+
+.orderBackground {
+background-color: rgba(10, 10, 10, 0.75);
+}
+
+.relativePosition {
+    position: relative;
+}
+
+.absolutePosition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
