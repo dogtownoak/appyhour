@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body, main, p, button {
+    margin: 0;
+}
+
+.drinkList {
+    display: grid;
+    grid-row-gap: 85px;
+    grid-column-gap: 85px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+}
+
+.drinkCard, .textContainer, .descriptionPopUp {
+display: block;
+width: 100%;
+box-shadow: -11px 21px 21px rgba(0, 0, 0, 0.1);
+}
+
+.drinkImg {
+z-index: -1;
+position: absolute;
+}
+
+.drinkCard {
+display: flex;
+flex-direction: column;
+}
+
+.textContainer {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+    max-height: 240px;
+}
+
+p {
+    text-align: center;
+    font-weight: 550;
+}
+
+.textWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 0.8em 1em;
+    font-size: 1em;
+}
+
+.textContainerPopUp {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+    max-height: 240px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.textWrapperPopUp {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 0.8em 1em;
+    font-size: 1em;
+}
+
+.orderItem {
+    align-self: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.orderBackground {
+    background-color: rgba(10, 10, 10, 0.75);
+}
+
+.signUp h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    border: 2px white solid;
+}
+
+.appetizerOptions, .drinkOptions {
+    height: 50vh;
+    width: 100vw;
+    border: 1px white solid;
+}
+
+#appetizerButton, #drinkButton {
+    font-size: 3em;
+    border: 1px white solid;
+    padding: 0.5em;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.order {
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.orderPopUp {
+    background-color: #c44242;
+    display: block;
+}
+
+.orderPopUp, .orderContainer, .cancelOrderPopup {
+    border: 2px white solid;
+}
+
+.orderContainer, .orderPopUp, .cancelOrderPopUp {
+    max-width: 400px;
+    min-height: 400px;
+}
+
+.orderContainer, .cancelOrderPopUp {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+button, a, h5 {
+    border: 1px white solid;
+}
+
+.hidden {
+    display: none;
+}
+
+.relativePosition {
+    position: relative;
+}
+
+.absolutePosition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}

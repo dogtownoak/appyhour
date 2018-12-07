@@ -5,28 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Drink Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/drink.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header class="hidden">
         <h1>Drinks of the Day</h1>
     </header>
     <main>
-        <section class="drinkList">
+        <section id="dList" class="drinkList">
         </section>
-        <section class="order hidden">
-            <article class="orderPopUp">
+        <section id="dOrder" class="order hidden">
+            <atricle class="orderPopUp">
                 <div class="orderContainer">
                     <p id="orderNumber">Order Number</p>
                     <p>First Name</p>
-                    <button type="button" class="closePopUp">Sounds Good</button>
+                    <h4 type="button" class="closePopUp">Sounds Good</h4>
                 </div>
-                <div class="cancelOrderPopUp">
+                <div class="cancelOrderPopUp hidden">
                     <button type="button" class="cancelOrder">Delete Order</button>
+                    <h5 id="goBack">Keep Order & Go Back</h5>
                 </div>
-            </article>
+            </atricle>
         </section>
+        <footer class="hidden">
+            <h4>Footer</h4>
+        </footer>
   </main>
   <script src="scripts/app.js"></script>
 </body>
