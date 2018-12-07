@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Drink Menu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/drink.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="hidden">
-        <h1>Drinks of the Day</h1>
+    <header class="drinkHeader">
+        <h1 class="drinkH1">Friday</h1>
     </header>
     <main>
-        <section id="dList" class="drinkList">
+        <section id="drinkList" class="drinkList">
         </section>
         <section id="dOrder" class="order hidden">
-            <atricle class="orderPopUp">
+            <article class="orderPopUp">
                 <div class="orderContainer">
                     <p id="orderNumber">Order Number</p>
                     <p>First Name</p>
-                    <h4 type="button" class="closePopUp">Sounds Good</h4>
+                    <h4 class="closePopUp">Sounds Good</h4>
                 </div>
                 <div class="cancelOrderPopUp hidden">
                     <button type="button" class="cancelOrder">Delete Order</button>
@@ -28,8 +28,8 @@
                 </div>
             </atricle>
         </section>
-        <footer class="hidden">
-            <h4>Footer</h4>
+        <footer class='hidden'>
+            <h2>Footer</h2>
         </footer>
   </main>
   <script src="scripts/app.js"></script>
