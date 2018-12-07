@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Appy Hour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/landing.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+
+    </header>
+    <video autoplay muted loop id="myVideo">
+        <source src="images/appvideo4.mp4" type="video/mp4">
+    </video>
+    <section class="logo">
+            <h1>AppyHour</h1>
+        </section>
+    <section class="loginSignUp">
+        <div class="signUpBox">       
+            <form>
+                <input type="text" name="firstName" placeholder="First Name" required/>
+                <input type="text" name="lastName" placeholder="Last Name" required/>
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="Password" required/>
+                <input type="password" name="password2" placeholder="Re-Type Password" required/>
+                <input type="submit" name="signUpButton" value="Sign Up"/>
+            </form>
+        </div>
+        <div class="loginBox">
+            <h1>Log In</h1>
+            <form>
+                <input type="text" name="username" placeholder="Username" required/>
+                <input type="password" name="password" placeholder="Password" required/>
+                <input type="submit" name="loginButton" value="Log In" />
+            </form>
+        </div>
+        <div class="or">OR</div>
+    </section>
+    <section class="drinkAppChoice hidden">
+        <h2>What are you craving today?</h2>
+        <div class="appetizerOptions">
+            <form action="/views/appetizers.html">
+                <img src="https://loremflickr.com/cache/resized/4864_44992267395_4b45d62822_320_240_nofilter.jpg">
+                <input type="submit" value="Appetizers" onclick="window.location='/appetizers';">
+            </form>
+        </div>
+        <div class="drinkOptions">
+            <img src="images/mojito.jpg">
+            <input type="submit" value="Drinks" onclick="window.location='/drinks';">
+        </div>
+    </section>
+    <footer>
+            <p>Local apps and drinks for $3</p>
+    </footer>
+    <script src="scripts/landing.js"></script>
+</body>
+</html>

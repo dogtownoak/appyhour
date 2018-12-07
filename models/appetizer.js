@@ -6,7 +6,7 @@ const AppetizerSchema = new Schema({
     vegan: Boolean,
     style: String,
     image: String,
-    desription: String,
+    description: String,
     dateValid: Date,
     business: String,
     businessAddress: String,
