@@ -67,9 +67,26 @@ $.ajax({
     error: onError,
 });
 
-    function onError ( err ) {
-        console.log( err );
-    }
+    var newOrder = {
+            dateValid: tomorrow,
+            dateOrdered: today,
+            orderNumber: Math.floor(1000 + Math.random() * 9000),
+            user: "5c0829fec4a17ff9bb463549",
+            drink: drinkId.id,
+        };
+
+
+    $.ajax({
+        method: 'POST',
+        url: ordersUrl,
+        data: newOrder,
+        success: onSuccess,
+        error: onError,
+    });
+
+        function onError ( err ) {
+            console.log( err );
+        }
     function onSuccess (order) {
         console.log(`Order Created:`, order)
         $('#orderNumber').text(order.orderNumber)
@@ -199,6 +216,7 @@ $('#drinkList').on('click', function(e){
         $('body').removeClass('orderBackground')
     }
 });
+
 
 /////////////ORDER FUNCTIONS //////////////////////
 
