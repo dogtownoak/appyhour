@@ -24,7 +24,7 @@ app.get('/appetizers', (req, res) => {
     res.sendFile(__dirname + '/views/appetizers.html');
 })
 
-app.get('/drinksMenu', (req, res) => {
+app.get('/drinks', (req, res) => {
     res.sendFile(__dirname + '/views/drinks.html');
 });
 
