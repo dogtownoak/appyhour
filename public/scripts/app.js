@@ -117,7 +117,7 @@ $.ajax({
         }
         
 ///////////// CREATE APPETIZER ORDER /////////////////////////
-$('.appetizerList').one('click', '.appCard', function(e){
+$('.appetizerList').one('click', '.orderItem', function(e){
     e.preventDefault()
     console.log(`${e} creat order click`)
 
