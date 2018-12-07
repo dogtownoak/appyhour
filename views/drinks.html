@@ -9,24 +9,28 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>Drinks of the Day</h1>
+    <header class="drinkHeader">
+        <h1 class="drinkH1">Friday</h1>
     </header>
     <main>
         <section id="drinkList" class="drinkList">
         </section>
-        <section class="order hidden">
+        <section id="dOrder" class="order hidden">
             <article class="orderPopUp">
                 <div class="orderContainer">
                     <p id="orderNumber">Order Number</p>
                     <p>First Name</p>
-                    <button type="button" class="closePopUp">Sounds Good</button>
+                    <h4 class="closePopUp">Sounds Good</h4>
                 </div>
-                <div class="cancelOrderPopUp">
+                <div class="cancelOrderPopUp hidden">
                     <button type="button" class="cancelOrder">Delete Order</button>
+                    <h5 id="goBack">Keep Order & Go Back</h5>
                 </div>
             </article>
         </section>
+        <footer class='hidden'>
+            <h2>Footer</h2>
+        </footer>
   </main>
   <script src="scripts/app.js"></script>
 </body>

@@ -23,66 +23,7 @@ button #cancelOrder, a #cancelOrder, h5 #cancelOrder, h4 #cancelOrder {
   font-size: 0.75em;
 }
 
-.signUp h1 {
-  text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  height: 300px;
-  width: 340px;
-  padding: 1em;
-  border: 3px solid #ccc;
-  border-radius: 2.5em;
-}
-
-form div + div {
-  margin-top: 1em;
-}
-
-input[type=text], input[type=password] {
-  font: 1em;
-  width: 300px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-input:focus {
-  border-color: #000;
-}
-
-input[type=submit] {
-  margin: 0 auto;
-  display: block;
-  transition-duration: 0.4s;
-  padding: 10px 40px;
-  border-radius: 20px;
-  font-size: 15px;
-}
-
-input[type=submit]:hover {
-  background-color: #999999;
-  color: white;
-  cursor: pointer;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.login {
-  border: 2px white solid;
-}
-
-.appHeader {
+.appHeader, .drinkHeader {
   width: 100vw;
   height: 10vh;
   display: flex;
@@ -91,7 +32,7 @@ form {
   box-shadow: -11px 21px 21px rgba(0, 0, 0, 0.1);
 }
 
-.appH1 {
+.appH1, .drinkH1 {
   height: 4vh;
   margin: 0.25em;
   display: block;

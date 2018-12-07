@@ -20,11 +20,11 @@ $(document).ready(function(){
         $('.drinkList').empty();
         drinks.forEach(drink => {
             let card1 = `
-            <div class="drinkCard">
+            <div class="drinkCard" data-id=${drink._id}>
             <img class="drinkImg" src="${drink.image}" >
                 <div class="textContainer">
                     <div class="textWrapper">
-                    <p>${drink.brand}, ${drink.style}</p>
+                    <p>${drink.style}</p>
                     <p>${drink.business}</p>
                     <p>${drink.businessAddress}</p>
                     </div>
@@ -36,8 +36,8 @@ $(document).ready(function(){
                     <button id="cancelD" type="button" class="orderItem" data-id= ${drink._id}>Reserve Now</button>
                 </div>
             </div>
-            </div>
-            `
+            </div>`
+
             $('.drinkList').append(card1);
         });
         }
@@ -56,7 +56,7 @@ var newOrder = {
         dateOrdered: today,
         orderNumber: Math.floor(1000 + Math.random() * 9000),
         user: "5c0829fec4a17ff9bb463549",
-        appetizer: drinkId.id,
+        drink: drinkId.id,
     };
 
 $.ajax({
@@ -126,7 +126,7 @@ $('.appetizerList').one('click', '.appCard', function(e){
     var appId = $(this).data()
     console.log(appId.id)
     var today = new Date()
-    var tomorrow = today.getDate()+1
+    var tomorrow = new Date((new Date()).valueOf() + 1000*3600*24)
 
     var newOrder = {
             dateValid: tomorrow,
@@ -150,11 +150,11 @@ $('.appetizerList').one('click', '.appCard', function(e){
         function onSuccess (order) {
         console.log(`Order Created:`, order)
         $('#orderNumber').text(order.orderNumber)
-        $('.orderContainer').append(`<a id="cancelOrder" data-id=${order._id} href="#"> Change Order?</a>`)
+        $('.orderContainer').append(`<a id="cancelOrder" data-id=${order._id} href="#">Change Order?</a>`)
         }
     });
 
-    ////////////////////ORDER FUNCTIONS ///////////////////////////
+    ////////////////////ORDER APP FUNCTIONS ///////////////////////////
 
 $('#apList').on('click', function(e){
     e.preventDefault();
@@ -177,6 +177,28 @@ $('#apList').on('click', function(e){
         $('body').removeClass('orderBackground')
     } 
 });
+////////////////////ORDER DRINK FUNCTIONS //////////////////////////
+$('#dList').on('click', function(e){
+    e.preventDefault();
+    console.log(e)
+    var tag = e.target.tagName
+    console.log(tag)
+    if (tag === "BUTTON") {
+        $('.dList').addClass('relativePosition')
+        $('.order').addClass('absolutePosition')
+        $('.order').removeClass('hidden')
+        $('.textContainerPopUp').addClass('hidden')
+        $('.textWrapperPopUp').addClass('hidden')
+        $('.textContainer').removeClass('hidden')
+        $('.textWrapper').removeClass('hidden')
+    } else {
+        $('.textContainer', this).toggleClass('hidden')
+        $('.textWrapper', this).toggleClass('hidden')
+        $('.textContainerPopUp', this).toggleClass('hidden')
+        $('.textWrapperPopUp', this).toggleClass('hidden')
+        $('body').removeClass('orderBackground')
+    }
+});
 
 /////////////ORDER FUNCTIONS //////////////////////
 
@@ -194,15 +216,14 @@ $('.order').on('click', function(e){
         // SOUNDS GOOD BUTTON
     } else if (tag === "H4") {
         $('#apList').addClass('hidden')
+        $('#drinkList').addClass('hidden')
         $('#cancelOrder').addClass('hidden')
         $('header').addClass('hidden')
         $('.video').removeClass('hidden')
         $('H4').text("Enjoy!")
-
-
     }
 
-    ///////////////////CANCEL ORDER ///////////////////////////////
+    ///////////////////CANCEL APP ORDER ///////////////////////////////
     $('#apOrder').on('click', '.cancelOrder', function(e){
         e.preventDefault();
 
@@ -228,3 +249,30 @@ $('.order').on('click', function(e){
             }
         })
     })
+    ///////////////////CANCEL DRINK ORDER ///////////////////////////////
+    $('#dOrder').on('click', '.cancelOrder', function(e){
+        e.preventDefault();
+ 
+        orderId = $('#cancelOrder').data().id
+        console.log(orderId)
+        var ordersUrl = `/api/orders/${orderId}`
+        console.log(ordersUrl)
+ 
+        $.ajax({
+            method: 'DELETE',
+            url: ordersUrl,
+            //data: orderId,
+            success: onSuccess,
+            error: onError,
+ 
+        });
+            function onError ( err ) {
+                console.log( err );
+            }
+            function onSuccess (order) {
+            console.log(`Order Deleted:`, order)
+            $('#dOrder').addClass('hidden')
+            alert('Your order was deleted')
+            }
+        })
+    });
