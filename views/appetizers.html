@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Appy Hour Appetizers</title>
+    <!-- appyprice, myappyhour, yourappyhour, ourappyhour, justoneappy, appyhookup, happyhourexplorer, buymyhour, happyhourmaker, hourmaker, appyhourdeal, appyhourscore 
+    appyexplorer, lowertab, hourreward, appyscore -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" >
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="appHeader">
+    <h1 class="appH1">Friday's $3 Specials</h1>
+  </header>
+  <main>
+    <section id="apList" class="appetizerList">
+    </section>
+    <section id="apOrder" class="order hidden">
+      <atricle class="orderPopUp">
+        <div class="orderContainer">
+            <p id="orderNumber">Order Number</p>
+            <p id="instructions">Show restaurant or bar this order number and enjoy your <em>appy hour!</em></p>
+            <h4 class="closePopUp">Sounds Good</h4>
+        </div>
+        <div class="cancelOrderPopUp hidden">
+            <button type="button" class="cancelOrder">Delete Order</button>
+            <h5 id="goBack">Keep Order and Go Back</h5>
+        </div>      
+      </atricle>
+    </section>
+  </main>
+  <section class="video hidden">
+      <video autoplay muted loop id="appVideo">
+          <source src="images/appvideo2.mp4" type="video/mp4">
+      </video>
+  </section>
+  <section class="video hidden">
+      <video autoplay muted loop class="appVideo">
+          <source src="images/appvideo2.mp4" type="video/mp4">
+      </video>
+  </section>
+  <footer>
+    <h2>Is it 5 O'Clock Yet?</h2>
+  </footer>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

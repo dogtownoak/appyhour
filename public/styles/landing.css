@@ -1,0 +1,195 @@
+<section class="logo">
+       <h1>AppyHour</h1>
+   </section>
+
+<footer>
+       <p>Local apps and drinks for $3</p>
+   </footer>
+
+body {
+   margin: 0;
+   padding: 0;
+   font-size: 16px;
+   color: white;
+   font-family: sans-serif;
+   font-weight: 300;
+   letter-spacing: .2em;
+}
+
+.hidden {
+   display: none;
+}
+
+
+#myVideo, #apVideo {
+   position: fixed;
+   top:0;
+   right: 0;
+   left:0;
+   bottom: 0;
+   min-width: 100%;
+   min-height: 100%;
+   z-index: -1;
+}
+
+.logo {
+   background-color: red;
+   text-align: center;
+   padding-top: 20px;
+   padding-bottom: 10px;
+}
+
+.logo h1 {
+   font-size: 70px;
+}
+
+.loginSignUp {
+   position: relative;
+   margin: 5% auto;
+   height: 400px;
+   width: 600px;
+   background-color: #fff;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+   background-image: linear-gradient(to right, red , #57C5E7);
+   opacity: .9;
+}
+
+.signUpBox {
+   position: absolute;
+   top: 0;
+   left: 0;
+   box-sizing: border-box;
+   padding: 40px;
+   width: 300px;
+   height: 400px;
+}
+
+.loginBox {
+   position: absolute;
+   top: 0;
+   right: 0;
+   box-sizing: border-box;
+   padding: 60px;
+   padding-top: 90px;
+   width: 300px;
+   height: 400px;
+}
+
+footer {
+   text-align: center;
+   font-size: 30px;
+   background-color: #57C5E7;
+   color: white;
+   margin-bottom: 0;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+
+h1 {
+   margin: 0 0 20px 0;
+   font-weight:300;
+   font-size: 28px;
+}
+
+input[type=text], input[type=password] {
+   display: block;
+   box-sizing: border-box;
+   margin-bottom: 20px;
+   padding: 4px;
+   width: 220px;
+   height: 32px;
+   opacity: .7;
+   border-top: none;
+   border-left: none;
+   border-right: none;
+   outline: none;
+   border-bottom: 1px, solid, #aaa;
+   font-family: sans-serif;
+   font-weight: 400px;
+   font-size: 14px;
+   transition: 0.2s ease;
+}
+
+input[type="submit"] {
+   margin-bottom: 28px;
+   width: 120px;
+   height: 32px;
+   background-color: #4F009E;
+   border: none;
+   border-radius: 2px;
+   color: #fff;
+   font-family: sans-serif;
+   font-weight: 400;
+   text-transform: uppercase;
+   transition: 0.2s ease;
+   cursor: pointer;
+}
+
+input[type="submit"]:hover, input[tyoe="submit"]:focus {
+   background: #4F009E;
+   transition: 0.2s ease;
+}
+
+.or {
+   position: absolute;
+   top: 180px;
+   left: 280px;
+   width: 40px;
+   height: 40px;
+   background: #4F009E;
+   border-radius: 50%;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, .7);
+   line-height:40px;
+   text-align: center;
+
+}
+
+.drinkAppChoice {
+   position: relative;
+   margin: 5% auto;
+   height: 500px;
+   width: 800px;
+   background-color: #fff;
+   opacity: .8;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+   text-align: center;
+}
+
+.drinkAppChoice h2 {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   color: #4F009E;
+}
+
+.appetizerOptions {
+   position: absolute;
+   top: 2;
+   left: 0;
+   box-sizing: border-box;
+   width: 400px;
+   height: 500px;
+}
+
+.drinkOptions {
+   position: absolute;
+   top: 2;
+   right: 0;
+   box-sizing: border-box;
+   width: 400px;
+   height: 500px;
+}
+
+img {
+   position: relative;
+   border-radius: 60%
+}
+
+.drinkAppChoice input[type="submit"] {
+   position: relative;
+   margin-top: 60px;
+   border-radius: 2em;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+
