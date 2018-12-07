@@ -200,6 +200,10 @@ $('.order').on('click', function(e){
     } else if (tag === "H5") {
         $('.cancelOrderPopUp').addClass('hidden')
         $('.orderContainer').removeClass('hidden')
+        // SOUNDS GOOD BUTTON
+    } else if (tag === "H4") {
+        $('#apList').addClass('hidden')
+        $('#cancelOrder').addClass('hidden')
     }
 
 
@@ -225,6 +229,8 @@ $('.order').on('click', function(e){
             }
             function onSuccess (order) {
             console.log(`Order Deleted:`, order)
+            $('#apOrder').addClass('hidden')
+            alert('Your order was deleted')
             }
         })
     })
