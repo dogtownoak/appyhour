@@ -15,15 +15,8 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="hidden">
-    <nav>
-      <h1>Under Construction</h1>
-      <ul>
-        <li>
-          <a href="#">Nav item 1</a>
-        </li>
-      </ul>
-    </nav>
+  <header class="appHeader">
+    <h1 class="appH1">Friday</h1>
   </header>
   <main>
     <section id="apList" class="appetizerList">
@@ -32,15 +25,20 @@
       <atricle class="orderPopUp">
         <div class="orderContainer">
             <p id="orderNumber">Order Number</p>
-            <p>First Name</p>
+            <p id="instructions">Show restaurant or bar this order number and enjoy your <em>appy hour!</em></p>
             <h4 type="button" class="closePopUp">Sounds Good</h4>
             <!-- <a id="cancelTrigger">Changed Your Mind?</a> -->
         </div>
         <div class="cancelOrderPopUp hidden">
             <button type="button" class="cancelOrder">Delete Order</button>
-            <h5 id="goBack">Keep Order & Go Back</h5>
+            <h5 id="goBack">Keep Order and Go Back</h5>
         </div>      
       </atricle>
+    </section>
+    <section class="video hidden">
+        <video autoplay muted loop id="appVideo">
+            <source src="images/appvideo2.mp4" type="video/mp4">
+        </video>
     </section>
   </main>
   <footer class="hidden">

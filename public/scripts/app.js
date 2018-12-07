@@ -1,7 +1,6 @@
 $(document).ready(function(){
     console.log("jQuery up and running");
 
-  
 ////GET ALL DRINKS AND APPEND TO PAGE////
     var drinkUrl = `/api/drinks`
 
@@ -34,12 +33,11 @@ $(document).ready(function(){
                 <div class="textWrapperPopUp hidden">
                     <p>${drink.brand}, ${drink.style}</p>
                     <p>${drink.description}</p>
-                    <button id="cancelD" type="button" class="orderItem" data-id= ${drink._id}>Reserve</button>
+                    <button id="cancelD" type="button" class="orderItem" data-id= ${drink._id}>Reserve Now</button>
                 </div>
             </div>
             </div>
             `
-
             $('.drinkList').append(card1);
         });
         }
@@ -47,11 +45,9 @@ $(document).ready(function(){
 
 ////CREATE DRINK ORDER//////
 $('.drinkList').one('click', '.orderItem', function(e){
-    e.preventDefault();
-
+e.preventDefault();
 var ordersUrl = '/api/orders'
 var drinkId = $(this).data()
-//console.log(drinkId)
 var today = new Date()
 var tomorrow = new Date((new Date()).valueOf() + 1000*3600*24)
 
@@ -62,7 +58,6 @@ var newOrder = {
         user: "5c0829fec4a17ff9bb463549",
         appetizer: drinkId.id,
     };
-
 
 $.ajax({
     method: 'POST',
@@ -79,8 +74,6 @@ $.ajax({
         console.log(`Order Created:`, order)
         $('#orderNumber').text(order.orderNumber)
         $('.orderContainer').append(`<a id="cancel" data-id=${order._id} href="#"> Changed Your Mind?</a>`)
-    //    $('#cancel').attr("data-id=123")
-    //    `<button type="button" data-id=${order._id}> Changed Your Mind?</button>`
 }
 });
 
@@ -94,7 +87,6 @@ $.ajax({
         success: onSuccess,
         error: onError,
     });
-
         function onError ( err ) {
             console.log( err );
         } 
@@ -116,14 +108,14 @@ $.ajax({
                         <div class="textWrapperPopUp hidden">
                             <p>${appetizer.type}</p>
                             <p>${appetizer.description}</p>
-                            <button id="cancel" class="orderItem" type="button" data-id= ${appetizer._id}>Reserve</button>
+                            <button id="cancel" class="orderItem" type="button" data-id= ${appetizer._id}>Reserve Now</button>
                         </div>
                     </div>
                 </div>`
                 $('.appetizerList').append(card1);
             })
         }
-    
+        
 ///////////// CREATE APPETIZER ORDER /////////////////////////
 $('.appetizerList').one('click', '.appCard', function(e){
     e.preventDefault()
@@ -144,7 +136,6 @@ $('.appetizerList').one('click', '.appCard', function(e){
             appetizer: appId.id,
         };
 
-
     $.ajax({
         method: 'POST',
         url: ordersUrl,
@@ -157,19 +148,15 @@ $('.appetizerList').one('click', '.appCard', function(e){
             console.log( err );
         }
         function onSuccess (order) {
-           console.log(`Order Created:`, order)
-           $('#orderNumber').text(order.orderNumber)
-            $('.orderContainer').append(`<a id="cancelOrder" data-id=${order._id} href="#"> Changed Your Mind One?</a>`)
+        console.log(`Order Created:`, order)
+        $('#orderNumber').text(order.orderNumber)
+        $('.orderContainer').append(`<a id="cancelOrder" data-id=${order._id} href="#"> Change Order?</a>`)
         }
-
     });
-
-
 
     ////////////////////ORDER FUNCTIONS ///////////////////////////
 
-
-   $('#apList').on('click', function(e){
+$('#apList').on('click', function(e){
     e.preventDefault();
     console.log(e)
     var tag = e.target.tagName
@@ -208,8 +195,12 @@ $('.order').on('click', function(e){
     } else if (tag === "H4") {
         $('#apList').addClass('hidden')
         $('#cancelOrder').addClass('hidden')
-    }
+        $('header').addClass('hidden')
+        $('.video').removeClass('hidden')
+        $('H4').text("Enjoy!")
 
+
+    }
 
     ///////////////////CANCEL ORDER ///////////////////////////////
     $('#apOrder').on('click', '.cancelOrder', function(e){
@@ -226,7 +217,6 @@ $('.order').on('click', function(e){
             // data: orderId,
             success: onSuccess,
             error: onError,
-
         });
             function onError ( err ) {
                 console.log( err );
@@ -238,7 +228,3 @@ $('.order').on('click', function(e){
             }
         })
     })
-
-// var orders_endpoint = "/api/orders"
-// var orders_endpoint = "http://localhost:3000/api/orders/"
-

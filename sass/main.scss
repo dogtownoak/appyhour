@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'partial';
+ 
  * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -7,94 +10,32 @@ body, main, p, button {
     margin: 0;
 }
 
-.appetizerList, .drinkList {
-    display: grid;
-    grid-row-gap: 85px;
-    grid-column-gap: 85px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
-}
-
-.appCard, .textContainer, .descriptionPopUp, .drinkCard {
-    display: block;
-    width: 100%;
-    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
-}
-
-.appImg, .drinkImg {
-    z-index: -1;
-    position: absolute;
-}
-
-.appCard, .drinkCard {
-    display: flex;
-    flex-direction: column;
-}
-
-.textContainer  {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 240px;
-    max-height: 240px;
-}
-    p {
-        text-align: center;
-        font-weight: 550;
+button, a, h5, h4 {
+    border: 1px white solid;
+    background-color: $buttonColor;
+    color: $buttonTextColor;
+    text-decoration: none;
+    min-width: 230px;
+    min-height: 40px;
+    font-size: 1.5em;
+    font-weight: $buttonFontWeight;
+    padding: .2em .2em;
+    text-align: center;
+    #cancelOrder {
+        font-size: .75em;
     }
 
-.textWrapper{
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255,255,255, .75);
-    padding: .8em 1em;
-    font-size: 1em;
 }
-
-.textContainerPopUp {
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 240px;
-    max-height: 240px;
-    background-color: rgba(255,255,255, .35);
-}
-
-.textWrapperPopUp {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255,255,255, .75);
-    padding: .8em 1em;
-    font-size: 1em;
-}
-
-.orderItem {
-    align-self: center;
-}
-
-
-
-// toggle classes
-
-.hidden {
-    display:none;
-}
-
-.orderBackground {
-background-color: rgba(10, 10, 10, 0.75);
-
-}
-
-
-
+// LANDING PAGE
 .signUp h1 {
     text-align: center;
 }
 
 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     height: 300px;
     width: 340px;
@@ -134,17 +75,6 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-//  div {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     flex-wrap: wrap;
-//     width: 100vw;
-//     height: 100vh;
-//     background-color: tan;
-//  }
-
  form {
     display: flex;
     flex-direction: column;
@@ -155,6 +85,124 @@ input[type=submit]:hover {
  .login {
      border: 2px white solid;
  }
+
+//  APPETIZERS AND DRINKS
+
+.appHeader {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5em;
+    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
+}
+
+.appH1 {
+    height: 4vh;
+    margin: .25em;
+    display: block;
+    align-self: flex-end;
+}
+
+.appetizerList, .drinkList {
+    display: grid;
+    grid-row-gap: 85px;
+    grid-column-gap: 85px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 320px));
+}
+
+.appCard, .textContainer, .descriptionPopUp, .drinkCard {
+    display: block;
+    width: 100%;
+    box-shadow: -11px 21px 21px rgba(0, 0, 0, .1);
+}
+
+.appImg, .drinkImg {
+    z-index: -1;
+    position: absolute;
+}
+
+.appCard, .appImg, .textContainer, .drinkCard, .drinkImg {
+    border-radius: $cardBorderRadius;
+}
+
+.textWrapper, .textWrapperPopUp, .textWrapper {
+    border-bottom-left-radius: $cardBorderRadius;
+    border-bottom-right-radius: $cardBorderRadius;
+}
+
+.appCard, .drinkCard {
+    display: flex;
+    flex-direction: column;
+}
+
+.textContainer  {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+    max-height: 240px;
+}
+
+p {
+        text-align: center;
+        // font-weight: 550;
+}
+
+.textWrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255,255,255, .9);
+    padding: .8em 1em;
+    :first-child { 
+        font-size: 1.15em;
+        color: $mainColor;
+        font-weight: $mainFWeight;
+    }
+    :nth-last-child(2) {
+        font-size: .9em;
+        color: $secondaryTextColor;
+        font-weight: $mainSecFWeight;
+    }
+    :last-child {
+        color: $thirdTextColor;
+        font-weight: 400;
+        font-size: .85em;
+    }
+}
+
+.textContainerPopUp {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+    max-height: 240px;
+    background-color: rgba(255,255,255, .35);
+    :first-child {
+        color: $mainColor;
+        font-weight: $cardOrderMainFWeight;
+    }
+}
+
+.textWrapperPopUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(255,255,255, .5);
+    min-height: 240px;
+    max-height: 240px;
+    padding: .8em 1em;
+    font-size: 1em;
+    :first-child {
+        color: $orderHeaderColor;
+        font-size: 1.5em;
+        font-weight: $cardOrderMainFWeight;
+    }
+}
 
 .appetizerOptions, .drinkOptions {
     height: 50vh;
@@ -169,10 +217,18 @@ input[type=submit]:hover {
     background-color: rgba(255,255,255, .15);
 }
 
-// .appContainer, .appWrapper, img, h3, p {
-//     border: 1px black solid;
-// }
+//ORDER
+.orderItem {
+    align-self: center;
+}
 
+.appCard, .drinkCard {
+    transition: transform .2s;
+}
+
+.appCard:hover, .drinkCard:hover {
+    transform: scale(1.05);
+}
 .order {
     background-color: rgba(0,0,0,.65);
     width: 100vw;
@@ -184,17 +240,32 @@ input[type=submit]:hover {
 }
 
 .orderPopUp {
-    background-color: rgb(196, 66, 66);
+    background-color: $mainColor;
     display: block;
 }
 
-.orderPopUp, .orderContainer, .cancelOrderPopup {
-    border: 2px white solid;
+#orderNumber {
+    font-size: 4em;
+}
+
+#instructions {
+    border: 1px white solid;
+    border-radius: 10px;
+    padding: .5em;
+    em {
+        font-size: 1.35em;
+        font-weight: 800;
+    }
+}
+
+.orderPopUp, .cancelOrderPopup {
+    border: 2px white dashed;
 
 }
 
 .orderContainer, .orderPopUp, .cancelOrderPopUp{
-    max-width: 400px;
+    max-width: 275px;
+    min-width: 275px;
     min-height: 400px;
 }
 
@@ -205,30 +276,39 @@ input[type=submit]:hover {
     justify-content: center;
     padding: 1em;
 }
-
-
-button, a, h5 {
-    border: 1px white solid;
-
+// VIDEO
+#appVideo {
+    width: 100%;
 }
 
-// .appContainer {
-//     background-color: (0,0,0,.5);
-//     border: 2px red solid;
-// }
+//TOGGLE CLASSES
 
- .hidden {
-     display:none;
- }
+.hidden {
+    display:none;
+}
 
- .relativePosition {
-     position: relative;
- }
+.orderBackground {
+background-color: rgba(10, 10, 10, 0.75);
+}
 
- .absolutePosition {
-     position: absolute;
-     top: 0;
-     left: 0;
-     z-index: 10;
+.relativePosition {
+    position: relative;
+}
 
- }
+.absolutePosition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+
+@media only screen and (max-width: 330px) {
+    .appHeader {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5em;
+    }
+}
